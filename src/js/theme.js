@@ -3,37 +3,49 @@ const Theme = {
     DARK: 'dark-theme',
 };
 
-const body = document.querySelector(body);
-const themeSwitchToggle = document.querySelector('#theme-switch__toggle');
+const body = document.querySelector('body');
+const themeSwitchToggle = document.querySelector('.theme-switch__toggle');
+// console.log(themeSwitchToggle);
 
-themeSwitchToggle.addEventListener('change', onThemeSwitchToggle);
-function onThemeSwitchToggle(event) {
-    adjustedTheme = !event.target.checked ? 'light-theme' : 'dark-theme';
+// 1-й способ
 
-}
+// themeSwitchToggle.addEventListener('change', onThemeSwitchToggleChange);
 
-let isThemeAdjusted;
+// let isLightThemeAdjusted;
 
-localStorage.setTheme('isThemeAdjusted', isThemeAdjusted);
+// function onThemeSwitchToggleChange(event) {
+    
+//     if (isLightThemeAdjusted = !event.target.checked) {
+//         body.classList.remove('dark-theme');
+//         body.classList.add('light-theme');
+//        localStorage.setItem('ui', Theme.LIGHT);
+//     } if (isLightThemeAdjusted = event.target.checked) {
+//         //  body.classList.remove('light-theme');
+//         body.classList.add('dark-theme');
+        
+//         localStorage.setItem('ui', Theme.DARK);
+//     }
+//     // console.log(isLightThemeAdjusted);
+// }
 
-function onThemeSwitchToggle(event) {
-    // event.preventDefault();
-  
-    if (isThemeAdjusted = Theme.LIGHT) {
-        body.classlist.add('body.dark-theme');
+// 2-й способ (буль)
+
+let isLightThemeAdjusted = true;
+
+themeSwitchToggle.addEventListener('change', () => {
+
+    if (isLightThemeAdjusted) {
+        //  body.classList.remove('light-theme');
+        body.classList.add('dark-theme');
+        localStorage.setItem('ui', Theme.DARK);
+        
     } else {
-        body.classlist.add('body.light-theme');
+        body.classList.remove('dark-theme');
+        body.classList.add('light-theme');
+        localStorage.setItem('ui', Theme.LIGHT);
+      
     }
-    };
+      isLightThemeAdjusted = !isLightThemeAdjusted; 
+});
 
-    // let isLightTheme = true;
-// function onThemeSwitchToggle(event) {
-//     event.preventDefault();
 
-//     if (isLightTheme) {
-//         body.classlist.add('body.dark-theme');
-//     } else {
-//         body.classlist.add('body.light-theme');
-//     };
-//     // isLightTheme = !isLightTheme;
-// };

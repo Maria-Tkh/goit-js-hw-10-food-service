@@ -1,5 +1,5 @@
 import './sass/main.scss';
-// import './js/theme.js';
+import './js/theme.js';
 import menu from './menu.json';
 import menuTemplate from './templates/menu.hbs';
 
@@ -9,8 +9,8 @@ menuItems.insertAdjacentHTML('beforeend', menuMarkup);
 
 
 function createMenuMarkup(menu) {
-    return menu.map(menuTemplate).join('');
+    return menuTemplate(menu);
 }
-console.log(menu);
-console.log(menuTemplate);
+// console.log(menu);
+// console.log(menuTemplate);
 
